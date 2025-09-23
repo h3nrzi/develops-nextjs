@@ -35,11 +35,11 @@ body {
   /**************** Component Utilities */
 
   .card-wrapper {
-    @apply bg-light-900 dark:dark-gradient shadow-light-100 dar;
+    @apply dark:dark-gradient dar bg-light-900 shadow-light-100;
   }
 
   .markdown {
-    @apply prose dark:prose-p:text-light-700 dark:pros max-w-full;
+    @apply dark:pros prose max-w-full dark:prose-p:text-light-700;
   }
 
   /**************** Gradient Utilities */
