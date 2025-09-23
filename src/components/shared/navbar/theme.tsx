@@ -27,17 +27,25 @@ function Theme() {
         <MenubarTrigger className="focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
           {mode === "light" ? (
             <Image
-              className="active-them"
+              className="active-theme"
               src="/assets/icons/sun.svg"
               alt="sun"
+              width={20}
+              height={20}
+            />
+          ) : mode === "dark" ? (
+            <Image
+              className="active-theme"
+              src="/assets/icons/moon.svg"
+              alt="moon"
               width={20}
               height={20}
             />
           ) : (
             <Image
               className="active-theme"
-              src="/assets/icons/moon.svg"
-              alt="sun"
+              src="/assets/icons/computer.svg"
+              alt="system"
               width={20}
               height={20}
             />
