@@ -30,6 +30,8 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
     handleThemeChange();
   }, [mode]);
 
+  console.log(mode);
+
   return (
     <ThemeContext.Provider value={{ mode, setMode }}>
       {children}
