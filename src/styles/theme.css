@@ -157,7 +157,7 @@
 
   /* Miscellaneous Utilities */
   .placeholder {
-    @apply dark:placeholder:text-light- placeholder:text-light-400;
+    @apply placeholder:text-light-400 dark:placeholder:text-light-500;
   }
 
   .invert-colors {

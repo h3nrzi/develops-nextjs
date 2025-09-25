@@ -39,7 +39,7 @@ body {
   }
 
   .markdown {
-    @apply dark:pros prose max-w-full dark:prose-p:text-light-700;
+    @apply dark:pros prose dark:prose-p:text-light-700 max-w-full;
   }
 
   /**************** Gradient Utilities */
@@ -111,7 +111,7 @@ body {
   }
 
   .no-focus {
-    @apply focus-visible:ring-0! focus-visible:ring-transparent! focus-visible:ring-offset-0!;
+    @apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
   }
 
   .active-theme {
