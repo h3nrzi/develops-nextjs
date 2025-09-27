@@ -38,7 +38,7 @@ export default function MobileNav() {
 
       <SheetContent
         side="right"
-        className="background-light900_dark200 border-none rtl-content"
+        className="background-light900_dark200 border-none"
       >
         {/* Logo/Brand */}
         <SheetTitle>
@@ -49,7 +49,7 @@ export default function MobileNav() {
               height={23}
               alt="DevFlow"
             />
-            <p className="h2-bold text-dark100_light900 font-vazirmatn rtl-text">
+            <p className="h2-bold text-dark100_light900 font-vazirmatn text-right">
               دو <span className="text-primary-500">فلو</span>
             </p>
           </Link>
@@ -106,7 +106,7 @@ function NavContent() {
                   : "text-dark300_light900"
               }`}
             >
-              <p className={`rtl-text ${isActive ? "base-bold" : "base-medium"}`}>
+              <p className={`text-right ${isActive ? "base-bold" : "base-medium"}`}>
                 {item.label}
               </p>
               <Image

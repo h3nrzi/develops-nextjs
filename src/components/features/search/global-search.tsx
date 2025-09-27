@@ -6,8 +6,8 @@ import { Input } from "@/components/ui/input";
 
 export default function GlobalSearch() {
   return (
-    <div className="relative w-full max-w-[600px] max-lg:hidden mobile-rtl-margin">
-      <div className="background-light800_darkgradient relative flex min-h-[56px] items-center gap-1 rounded-xl mobile-rtl-padding">
+    <div className="relative w-full max-w-[600px] max-lg:hidden ml-0 mr-auto sm:mr-0">
+      <div className="background-light800_darkgradient relative flex min-h-[56px] items-center gap-1 rounded-xl pl-6 pr-4 sm:pl-12 sm:pr-6">
         <Input
           type="text"
           placeholder="جستجوی سراسری"

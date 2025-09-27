@@ -13,16 +13,16 @@ const vazirmatn = Vazirmatn({
 });
 
 export const metadata: Metadata = {
-  title: "دو فلو - پلتفرم پرسش و پاسخ برنامهنویسی",
+  title: "دو فلو - پلتفرم پرسش و پاسخ برنامه نویسی",
   description:
-    "پلتفرمی محور انجمن برای پرسش و پاسخ سوالات برنامهنویسی. کمک بگیرید، دانش به اشتراک بگذارید و با برنامهنویسان سراسر جهان همکاری کنید.",
+    "پلتفرمی محور انجمن برای پرسش و پاسخ سوالات برنامه نویسی. کمک بگیرید، دانش به اشتراک بگذارید و با برنامه نویسان سراسر جهان همکاری کنید.",
   icons: "/assets/images/site-logo.svg",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.variable} font-vazirmatn rtl-content`}>
+      <body className={`${vazirmatn.variable}`}>
         <ClerkProvider
           appearance={{
             elements: {

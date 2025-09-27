@@ -42,7 +42,7 @@ export default function Theme() {
     <Menubar className="relative border-none bg-transparent shadow-none">
       <MenubarMenu>
         {/* Theme toggle trigger with current theme icon */}
-        <MenubarTrigger className="focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
+        <MenubarTrigger className="cursor-pointer focus:bg-light-900 data-[state=open]:bg-light-900 dark:focus:bg-dark-200 dark:data-[state=open]:bg-dark-200">
           <Image
             className="active-theme"
             src={themeIcons[mode as keyof typeof themeIcons]}
@@ -53,11 +53,11 @@ export default function Theme() {
         </MenubarTrigger>
 
         {/* Theme options dropdown */}
-        <MenubarContent className="dark:border-dark-900 absolute right-[-3rem] mt-3 min-w-[120px] rounded border py-2 dark:bg-dark-300">
+        <MenubarContent className="dark:border-dark-900 absolute mt-3 min-w-[120px] rounded border py-2 dark:bg-dark-300">
           {themes.map((theme) => (
             <MenubarItem
               key={theme.value}
-              className="flex items-center gap-4 px-2.5 py-2 dark:focus:bg-dark-400"
+              className="flex cursor-pointer items-center gap-4 px-2.5 py-2 dark:focus:bg-dark-400"
               onClick={() => handleThemeChange(theme.value)}
             >
               <Image

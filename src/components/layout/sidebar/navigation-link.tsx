@@ -26,7 +26,7 @@ export default function NavigationLink({
           : "text-dark300_light900"
       }`}
     >
-      <p className={`max-lg:hidden rtl-text ${isActive ? "base-bold" : "base-medium"}`}>
+      <p className={`max-lg:hidden text-right ${isActive ? "base-bold" : "base-medium"}`}>
         {label}
       </p>
       <Image
