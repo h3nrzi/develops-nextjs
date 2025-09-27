@@ -26,6 +26,9 @@ export default function NavigationLink({
           : "text-dark300_light900"
       }`}
     >
+      <p className={`max-lg:hidden ${isActive ? "base-bold" : "base-medium"}`}>
+        {label}
+      </p>
       <Image
         src={icon}
         alt={label}
@@ -33,9 +36,6 @@ export default function NavigationLink({
         height={20}
         className={isActive ? "" : "invert-colors"}
       />
-      <p className={`max-lg:hidden ${isActive ? "base-bold" : "base-medium"}`}>
-        {label}
-      </p>
     </Link>
   );
 }

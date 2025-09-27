@@ -37,7 +37,7 @@ export default function MobileNav() {
       </SheetTrigger>
 
       <SheetContent
-        side="left"
+        side="right"
         className="background-light900_dark200 border-none"
       >
         {/* Logo/Brand */}
@@ -106,6 +106,9 @@ function NavContent() {
                   : "text-dark300_light900"
               }`}
             >
+              <p className={isActive ? "base-bold" : "base-medium"}>
+                {item.label}
+              </p>
               <Image
                 src={item.imgURL}
                 alt={item.label}
@@ -113,9 +116,6 @@ function NavContent() {
                 height={20}
                 className={isActive ? "" : "invert-colors"}
               />
-              <p className={isActive ? "base-bold" : "base-medium"}>
-                {item.label}
-              </p>
             </Link>
           </SheetClose>
         );
