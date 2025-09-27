@@ -4,7 +4,12 @@
 @tailwind utilities;
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Vazirmatn", sans-serif;
+  line-height: 1.8;
+}
+
+* {
+  font-feature-settings: "kern" 1, "liga" 1;
 }
 
 @layer utilities {
@@ -16,6 +21,12 @@ body {
   
   input, textarea {
     text-align: right;
+    font-family: "Vazirmatn", sans-serif;
+  }
+  
+  p, span, div, h1, h2, h3, h4, h5, h6 {
+    text-align: right;
+    font-family: "Vazirmatn", sans-serif;
   }
 
   /**************** FlexBox Utilities */

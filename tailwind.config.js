@@ -31,6 +31,7 @@ module.exports = {
         "accent-blue": "#1DA1F2",
       },
       fontFamily: {
+        vazirmatn: ["var(--font-vazirmatn)", "sans-serif"],
         inter: ["var(--font-inter)"],
         spaceGrotesk: ["var(--font-spaceGrotesk)"],
       },

@@ -29,6 +29,7 @@ export default function AuthButton({
       <Button
         className={`small-medium min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ${className}`}
       >
+        <span className={`max-lg:hidden ${textClassName || ""}`}>{text}</span>
         <Image
           src={icon}
           alt={alt}
@@ -36,7 +37,6 @@ export default function AuthButton({
           height={20}
           className="invert-colors lg:hidden"
         />
-        <span className={`max-lg:hidden ${textClassName || ""}`}>{text}</span>
       </Button>
     </Link>
   );

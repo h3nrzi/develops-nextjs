@@ -1,34 +1,28 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Vazirmatn } from "next/font/google";
 import { PropsWithChildren } from "react";
 import "./globals.css";
 
 import { ThemeProvider } from "@/context/theme-provider";
 
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
+const vazirmatn = Vazirmatn({
+  subsets: ["arabic", "latin"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter",
-});
-
-const space_grotesk = Space_Grotesk({
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-spaceGrotesk",
+  variable: "--font-vazirmatn",
 });
 
 export const metadata: Metadata = {
-  title: "DavFlow",
+  title: "دو فلو - پلتفرم پرسش و پاسخ برنامهنویسی",
   description:
-    "A community-driven platform for asking and answering programming questions. Get help, share knowledge, and collaborate with developers from around the world Explore topics in web development, mobile app development, algorithms, data structures, and more.",
+    "پلتفرمی محور انجمن برای پرسش و پاسخ سوالات برنامهنویسی. کمک بگیرید، دانش به اشتراک بگذارید و با برنامهنویسان سراسر جهان همکاری کنید.",
   icons: "/assets/images/site-logo.svg",
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${inter.variable} ${space_grotesk.variable}`}>
+      <body className={`${vazirmatn.variable} font-vazirmatn`}>
         <ClerkProvider
           appearance={{
             elements: {

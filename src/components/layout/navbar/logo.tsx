@@ -14,8 +14,8 @@ export default function Logo() {
         height={23}
         alt="DevFlow"
       />
-      <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-sm:hidden">
-        Dev <span className="text-primary-500">OverFlow</span>
+      <p className="h2-bold font-vazirmatn text-dark-100 dark:text-light-900 max-sm:hidden">
+        دو <span className="text-primary-500">فلو</span>
       </p>
     </Link>
   );
