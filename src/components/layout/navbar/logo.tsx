@@ -12,10 +12,10 @@ export default function Logo() {
         src="/assets/images/site-logo.svg"
         width={23}
         height={23}
-        alt="DevFlow"
+        alt="دِولاپس"
       />
       <p className="h2-bold text-right text-dark-100 dark:text-light-900 max-sm:hidden">
-        دو <span className="text-primary-500">فلو</span>
+        دِو<span className="text-primary-500">لاپس</span>
       </p>
     </Link>
   );

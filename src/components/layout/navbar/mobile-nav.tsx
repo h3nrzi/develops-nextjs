@@ -47,10 +47,10 @@ export default function MobileNav() {
               src="/assets/images/site-logo.svg"
               width={23}
               height={23}
-              alt="DevFlow"
+              alt="دِولاپس"
             />
             <p className="h2-bold text-dark100_light900 text-right">
-              دو <span className="text-primary-500">فلو</span>
+              دِو<span className="text-primary-500">لاپس</span>
             </p>
           </Link>
         </SheetTitle>
@@ -100,17 +100,12 @@ function NavContent() {
           <SheetClose asChild key={item.route}>
             <Link
               href={item.route}
-              className={`flex items-center justify-between gap-4 bg-transparent p-4 ${
+              className={`flex items-center gap-4 bg-transparent p-4 ${
                 isActive
                   ? "primary-gradient rounded-lg text-light-900"
                   : "text-dark300_light900"
               }`}
             >
-              <p
-                className={`text-right ${isActive ? "base-bold" : "base-medium"}`}
-              >
-                {item.label}
-              </p>
               <Image
                 src={item.imgURL}
                 alt={item.label}
@@ -118,6 +113,11 @@ function NavContent() {
                 height={20}
                 className={isActive ? "" : "invert-colors"}
               />
+              <p
+                className={`text-right ${isActive ? "base-bold" : "base-medium"}`}
+              >
+                {item.label}
+              </p>
             </Link>
           </SheetClose>
         );

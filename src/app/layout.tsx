@@ -28,7 +28,7 @@ const vazirmatn = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "دو فلو - پلتفرم پرسش و پاسخ برنامه نویسی",
+  title: "دِولاپس - پلتفرم پرسش و پاسخ برنامه نویسی",
   description:
     "پلتفرمی محور انجمن برای پرسش و پاسخ سوالات برنامه نویسی. کمک بگیرید، دانش به اشتراک بگذارید و با برنامه نویسان سراسر جهان همکاری کنید.",
   icons: "/assets/images/site-logo.svg",
