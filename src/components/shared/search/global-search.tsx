@@ -18,8 +18,9 @@ export default function GlobalSearch() {
         <Input
           type="text"
           placeholder="Search Globally"
-          value=""
+          value="abc"
           className="paragraph-regular no-focus placeholder background-light800_darkgradient border-none bg-transparent shadow-none outline-none dark:caret-white"
+          onChange={() => {}}
         />
       </div>
     </div>
