@@ -8,6 +8,16 @@ body {
 }
 
 @layer utilities {
+  /**************** RTL Base Styles */
+  
+  * {
+    direction: rtl;
+  }
+  
+  input, textarea {
+    text-align: right;
+  }
+
   /**************** FlexBox Utilities */
 
   .flex-center {
@@ -18,6 +28,9 @@ body {
   }
   .flex-start {
     @apply flex items-center justify-start;
+  }
+  .flex-end {
+    @apply flex items-center justify-end;
   }
 
   /**************** Button Utilities */
@@ -53,6 +66,24 @@ body {
       rgba(23, 28, 35, 0.41) 0%,
       rgba(19, 22, 28, 0.7) 100%
     );
+  }
+
+  /**************** RTL Layout Utilities */
+  
+  .rtl-flip {
+    transform: scaleX(-1);
+  }
+  
+  .sidebar-right {
+    @apply right-0;
+  }
+  
+  .text-start-rtl {
+    @apply text-right;
+  }
+  
+  .text-end-rtl {
+    @apply text-left;
   }
 
   /**************** Scrollbar Utilities */

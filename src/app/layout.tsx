@@ -7,13 +7,13 @@ import "./globals.css";
 import { ThemeProvider } from "@/context/theme-provider";
 
 const inter = Inter({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   variable: "--font-inter",
 });
 
 const space_grotesk = Space_Grotesk({
-  subsets: ["latin"],
+  subsets: ["latin", "latin-ext"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-spaceGrotesk",
 });
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
-    <html lang="en">
+    <html lang="fa" dir="rtl">
       <body className={`${inter.variable} ${space_grotesk.variable}`}>
         <ClerkProvider
           appearance={{
