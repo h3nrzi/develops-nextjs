@@ -12,31 +12,9 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "@/components/ui/button";
 import { sidebarLinks } from "@/constants";
 
-/**
- * Reusable auth button component for mobile navigation
- */
-const MobileAuthButton = ({
-  href,
-  children,
-  className,
-}: {
-  href: string;
-  children: React.ReactNode;
-  className: string;
-}) => (
-  <SheetClose asChild>
-    <Link href={href}>
-      <Button
-        className={`small-medium min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ${className}`}
-      >
-        {children}
-      </Button>
-    </Link>
-  </SheetClose>
-);
+import MobileAuthButton from "../../auth/mobile-auth-button";
 
 /**
  * Mobile navigation component using sheet/drawer pattern
