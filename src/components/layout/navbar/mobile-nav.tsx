@@ -42,7 +42,7 @@ export default function MobileNav() {
       >
         {/* Logo/Brand */}
         <SheetTitle>
-          <Link href="/" className="flex items-center gap-1">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/assets/images/site-logo.svg"
               width={23}
@@ -55,7 +55,7 @@ export default function MobileNav() {
           </Link>
         </SheetTitle>
 
-        <div>
+        <div className="flex h-full flex-col py-[2rem]">
           {/* Navigation links */}
           <SheetClose asChild>
             <NavContent />
@@ -89,7 +89,7 @@ function NavContent() {
   const pathname = usePathname();
 
   return (
-    <section className="flex h-full flex-col gap-6 pt-16">
+    <section className="flex flex-1 flex-col gap-6">
       {sidebarLinks.map((item) => {
         // Check if current route matches (exact or nested path)
         const isActive =
