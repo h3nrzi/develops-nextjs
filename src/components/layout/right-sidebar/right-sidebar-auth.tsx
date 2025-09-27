@@ -6,7 +6,7 @@ import AuthButton from "../../auth/auth-button";
  * Authentication section for sidebar
  * Shows sign-in and sign-up buttons when user is signed out
  */
-export default function SidebarAuth() {
+export default function RightSidebarAuth() {
   return (
     <SignedOut>
       <div className="flex flex-col gap-3">
@@ -22,7 +22,7 @@ export default function SidebarAuth() {
           href="/sign-up"
           icon="/assets/icons/sign-up.svg"
           alt="sign up"
-          text="ثبت‌نام"
+          text="ثبت‌ نام"
           className="light-border-2 btn-tertiary text-dark400_light900"
         />
       </div>

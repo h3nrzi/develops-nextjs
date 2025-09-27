@@ -2,7 +2,7 @@ import GlobalSearch from "../../features/search/global-search";
 
 import Logo from "./logo";
 import MobileNav from "./mobile-nav";
-import UserActions from "./user-actions";
+import { UserActions } from "./user-actions";
 
 /**
  * Main navigation bar component
@@ -13,16 +13,16 @@ import UserActions from "./user-actions";
 export default function Navbar() {
   return (
     <nav className="flex-between background-light900_dark200 fixed z-50 w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
-      {/* Brand/Logo - RTL: left side */}
+      {/* Brand/Logo  */}
       <Logo />
 
-      {/* Global search - center */}
+      {/* Global search */}
       <GlobalSearch />
 
-      {/* User actions - RTL: right side */}
+      {/* User actions  */}
       <UserActions />
 
-      {/* Mobile navigation trigger - RTL: right side */}
+      {/* Mobile navigation trigger  */}
       <MobileNav />
     </nav>
   );

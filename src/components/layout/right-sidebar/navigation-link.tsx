@@ -20,17 +20,12 @@ export default function NavigationLink({
   return (
     <Link
       href={href}
-      className={`flex items-center justify-between gap-4 bg-transparent p-4 ${
+      className={`flex items-center gap-4 bg-transparent p-4 ${
         isActive
           ? "primary-gradient rounded-lg text-light-900"
           : "text-dark300_light900"
       }`}
     >
-      <p
-        className={`text-right max-lg:hidden ${isActive ? "base-bold" : "base-medium"}`}
-      >
-        {label}
-      </p>
       <Image
         src={icon}
         alt={label}
@@ -38,6 +33,11 @@ export default function NavigationLink({
         height={20}
         className={isActive ? "" : "invert-colors"}
       />
+      <p
+        className={`text-right max-lg:hidden ${isActive ? "base-bold" : "base-medium"}`}
+      >
+        {label}
+      </p>
     </Link>
   );
 }

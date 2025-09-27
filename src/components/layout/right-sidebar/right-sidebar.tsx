@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { sidebarLinks } from "@/constants";
 
 import NavigationLink from "./navigation-link";
-import SidebarAuth from "./sidebar-auth";
+import RightSidebarAuth from "./right-sidebar-auth";
 
 /**
  * Right navigation sidebar component (RTL)
@@ -39,7 +39,7 @@ export default function RightSidebar() {
       </div>
 
       {/* Authentication section */}
-      <SidebarAuth />
+      <RightSidebarAuth />
     </section>
   );
 }
