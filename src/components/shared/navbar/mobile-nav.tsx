@@ -15,9 +15,33 @@ import {
 import { Button } from "@/components/ui/button";
 import { sidebarLinks } from "@/constants";
 
+/**
+ * Reusable auth button component for mobile navigation
+ */
+const MobileAuthButton = ({ href, children, className }: {
+  href: string;
+  children: React.ReactNode;
+  className: string;
+}) => (
+  <SheetClose asChild>
+    <Link href={href}>
+      <Button className={`small-medium min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ${className}`}>
+        {children}
+      </Button>
+    </Link>
+  </SheetClose>
+);
+
+/**
+ * Mobile navigation component using sheet/drawer pattern
+ * - Hamburger menu trigger visible only on mobile
+ * - Contains logo, navigation links, and auth buttons
+ * - Auto-closes when navigation occurs
+ */
 export default function MobileNav() {
   return (
     <Sheet>
+      {/* Hamburger menu trigger */}
       <SheetTrigger asChild>
         <Image
           src="/assets/icons/hamburger.svg"
@@ -27,45 +51,38 @@ export default function MobileNav() {
           className="invert-colors sm:hidden"
         />
       </SheetTrigger>
-      <SheetContent
-        side="left"
-        className="background-light900_dark200 border-none"
-      >
-        {/*  */}
+      
+      <SheetContent side="left" className="background-light900_dark200 border-none">
+        {/* Logo/Brand */}
         <SheetTitle>
           <Link href="/" className="flex items-center gap-1">
             <Image
               src="/assets/images/site-logo.svg"
               width={23}
               height={23}
-              alt={"DevFlow"}
+              alt="DevFlow"
             />
             <p className="h2-bold text-dark100_light900 font-spaceGrotesk">
               Dev <span className="text-primary-500">OverFlow</span>
             </p>
           </Link>
         </SheetTitle>
-        {/*  */}
+        
         <div>
+          {/* Navigation links */}
           <SheetClose asChild>
             <NavContent />
           </SheetClose>
+          
+          {/* Authentication buttons - only shown when signed out */}
           <SignedOut>
             <div className="flex flex-col gap-3">
-              <SheetClose asChild>
-                <Link href="/sign-in">
-                  <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-                    <span className="primary-text-gradient">Log In</span>
-                  </Button>
-                </Link>
-              </SheetClose>
-              <SheetClose asChild>
-                <Link href="/sign-up">
-                  <Button className="small-medium light-border-2 btn-tertiary text-dark400_light900 min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
-                    Sign Up
-                  </Button>
-                </Link>
-              </SheetClose>
+              <MobileAuthButton href="/sign-in" className="btn-secondary">
+                <span className="primary-text-gradient">Log In</span>
+              </MobileAuthButton>
+              <MobileAuthButton href="/sign-up" className="light-border-2 btn-tertiary text-dark400_light900">
+                Sign Up
+              </MobileAuthButton>
             </div>
           </SignedOut>
         </div>
@@ -74,12 +91,17 @@ export default function MobileNav() {
   );
 }
 
+/**
+ * Navigation content component
+ * Renders sidebar links with active state highlighting
+ */
 function NavContent() {
   const pathname = usePathname();
 
   return (
     <section className="flex h-full flex-col gap-6 pt-16">
       {sidebarLinks.map((item) => {
+        // Check if current route matches (exact or nested path)
         const isActive =
           (pathname.includes(item.route) && item.route.length > 1) ||
           pathname === item.route;
@@ -88,16 +110,20 @@ function NavContent() {
           <SheetClose asChild key={item.route}>
             <Link
               href={item.route}
-              className={`${isActive ? "primary-gradient rounded-lg text-light-900" : "text-dark300_light900"} flex items-center justify-start gap-4 bg-transparent p-4`}
+              className={`flex items-center justify-start gap-4 bg-transparent p-4 ${
+                isActive
+                  ? "primary-gradient rounded-lg text-light-900"
+                  : "text-dark300_light900"
+              }`}
             >
               <Image
                 src={item.imgURL}
                 alt={item.label}
                 width={20}
                 height={20}
-                className={`${isActive ? "" : "invert-colors"}`}
+                className={isActive ? "" : "invert-colors"}
               />
-              <p className={`${isActive ? "base-bold" : "base-medium"}`}>
+              <p className={isActive ? "base-bold" : "base-medium"}>
                 {item.label}
               </p>
             </Link>
