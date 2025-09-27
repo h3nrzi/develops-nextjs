@@ -21,7 +21,7 @@ export default function Navbar() {
 
       {/* User actions - RTL: right side */}
       <UserActions />
-      
+
       {/* Mobile navigation trigger - RTL: right side */}
       <MobileNav />
     </nav>

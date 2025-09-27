@@ -1,14 +1,29 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
+import localFont from "next/font/local";
 import { PropsWithChildren } from "react";
 import "./globals.css";
 
 import { ThemeProvider } from "@/context/theme-provider";
 
-const vazirmatn = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+const vazirmatn = localFont({
+  src: [
+    { path: "../../public/assets/fonts/Vazirmatn-Thin.ttf", weight: "100" },
+    {
+      path: "../../public/assets/fonts/Vazirmatn-ExtraLight.ttf",
+      weight: "200",
+    },
+    { path: "../../public/assets/fonts/Vazirmatn-Light.ttf", weight: "300" },
+    { path: "../../public/assets/fonts/Vazirmatn-Regular.ttf", weight: "400" },
+    { path: "../../public/assets/fonts/Vazirmatn-Medium.ttf", weight: "500" },
+    { path: "../../public/assets/fonts/Vazirmatn-SemiBold.ttf", weight: "600" },
+    { path: "../../public/assets/fonts/Vazirmatn-Bold.ttf", weight: "700" },
+    {
+      path: "../../public/assets/fonts/Vazirmatn-ExtraBold.ttf",
+      weight: "800",
+    },
+    { path: "../../public/assets/fonts/Vazirmatn-Black.ttf", weight: "900" },
+  ],
   variable: "--font-vazirmatn",
 });
 
@@ -22,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.variable}`}>
+      <body className={`${vazirmatn.variable} font-vazirmatn`}>
         <ClerkProvider
           appearance={{
             elements: {

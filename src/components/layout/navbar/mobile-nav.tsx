@@ -49,7 +49,7 @@ export default function MobileNav() {
               height={23}
               alt="DevFlow"
             />
-            <p className="h2-bold text-dark100_light900 font-vazirmatn text-right">
+            <p className="h2-bold text-dark100_light900 text-right">
               دو <span className="text-primary-500">فلو</span>
             </p>
           </Link>
@@ -106,7 +106,9 @@ function NavContent() {
                   : "text-dark300_light900"
               }`}
             >
-              <p className={`text-right ${isActive ? "base-bold" : "base-medium"}`}>
+              <p
+                className={`text-right ${isActive ? "base-bold" : "base-medium"}`}
+              >
                 {item.label}
               </p>
               <Image
