@@ -19,11 +19,13 @@ export default function Navbar() {
       {/* Global search */}
       <GlobalSearch />
 
-      {/* User actions  */}
-      <UserActions />
+      <div className="flex gap-5">
+        {/* User actions  */}
+        <UserActions />
 
-      {/* Mobile navigation trigger  */}
-      <MobileNav />
+        {/* Mobile navigation trigger  */}
+        <MobileNav />
+      </div>
     </nav>
   );
 }
