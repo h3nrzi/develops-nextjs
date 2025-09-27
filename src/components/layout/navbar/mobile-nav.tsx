@@ -37,7 +37,7 @@ export default function MobileNav() {
       </SheetTrigger>
 
       <SheetContent
-        side="left"
+        side="right"
         className="background-light900_dark200 border-none rtl-content"
       >
         {/* Logo/Brand */}
