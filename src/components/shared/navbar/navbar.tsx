@@ -1,46 +1,8 @@
-import { SignedIn, UserButton } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
-
 import GlobalSearch from "../search/global-search";
 
+import Logo from "./logo";
 import MobileNav from "./mobile-nav";
-import Theme from "./theme";
-
-/**
- * Logo component for consistent branding across navbar
- */
-const Logo = () => (
-  <Link href="/" className="flex items-center gap-1">
-    <Image
-      src="/assets/images/site-logo.svg"
-      width={23}
-      height={23}
-      alt="DevFlow"
-    />
-    <p className="h2-bold font-spaceGrotesk text-dark-100 dark:text-light-900 max-sm:hidden">
-      Dev <span className="text-primary-500">OverFlow</span>
-    </p>
-  </Link>
-);
-
-/**
- * User actions section with theme toggle and user profile
- */
-const UserActions = () => (
-  <div className="flex-between gap-5">
-    <Theme />
-    <SignedIn>
-      <UserButton
-        afterSignOutUrl="/"
-        appearance={{
-          elements: { avatarBox: "h-10 w-10" },
-          variables: { colorPrimary: "#ff7000" },
-        }}
-      />
-    </SignedIn>
-  </div>
-);
+import UserActions from "./user-actions";
 
 /**
  * Main navigation bar component

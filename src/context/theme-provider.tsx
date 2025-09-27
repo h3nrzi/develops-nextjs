@@ -14,15 +14,18 @@ function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedTheme = localStorage.theme;
-    setMode(savedTheme === "dark" || savedTheme === "light" ? savedTheme : "system");
+    setMode(
+      savedTheme === "dark" || savedTheme === "light" ? savedTheme : "system",
+    );
   }, []);
 
   useEffect(() => {
     if (!mode) return;
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const isDarkMode = mode === "dark" || (mode === "system" && mediaQuery.matches);
-    
+    const isDarkMode =
+      mode === "dark" || (mode === "system" && mediaQuery.matches);
+
     document.documentElement.classList.toggle("dark", isDarkMode);
 
     if (mode === "system") {
