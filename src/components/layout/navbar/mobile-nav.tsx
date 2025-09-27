@@ -37,8 +37,8 @@ export default function MobileNav() {
       </SheetTrigger>
 
       <SheetContent
-        side="right"
-        className="background-light900_dark200 border-none"
+        side="left"
+        className="background-light900_dark200 border-none rtl-content"
       >
         {/* Logo/Brand */}
         <SheetTitle>
@@ -49,8 +49,8 @@ export default function MobileNav() {
               height={23}
               alt="DevFlow"
             />
-            <p className="h2-bold text-dark100_light900 font-spaceGrotesk">
-              Dev <span className="text-primary-500">OverFlow</span>
+            <p className="h2-bold text-dark100_light900 font-vazirmatn rtl-text">
+              دو <span className="text-primary-500">فلو</span>
             </p>
           </Link>
         </SheetTitle>
@@ -65,13 +65,13 @@ export default function MobileNav() {
           <SignedOut>
             <div className="flex flex-col gap-3">
               <MobileAuthButton href="/sign-in" className="btn-secondary">
-                <span className="primary-text-gradient">Log In</span>
+                <span className="primary-text-gradient">ورود</span>
               </MobileAuthButton>
               <MobileAuthButton
                 href="/sign-up"
                 className="light-border-2 btn-tertiary text-dark400_light900"
               >
-                Sign Up
+                ثبت نام
               </MobileAuthButton>
             </div>
           </SignedOut>
@@ -100,13 +100,13 @@ function NavContent() {
           <SheetClose asChild key={item.route}>
             <Link
               href={item.route}
-              className={`flex items-center justify-start gap-4 bg-transparent p-4 ${
+              className={`flex items-center justify-between gap-4 bg-transparent p-4 ${
                 isActive
                   ? "primary-gradient rounded-lg text-light-900"
                   : "text-dark300_light900"
               }`}
             >
-              <p className={isActive ? "base-bold" : "base-medium"}>
+              <p className={`rtl-text ${isActive ? "base-bold" : "base-medium"}`}>
                 {item.label}
               </p>
               <Image

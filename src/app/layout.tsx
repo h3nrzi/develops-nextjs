@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="fa" dir="rtl">
-      <body className={`${vazirmatn.variable} font-vazirmatn`}>
+      <body className={`${vazirmatn.variable} font-vazirmatn rtl-content`}>
         <ClerkProvider
           appearance={{
             elements: {

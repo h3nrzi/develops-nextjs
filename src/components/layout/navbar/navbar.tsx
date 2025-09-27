@@ -13,17 +13,17 @@ import UserActions from "./user-actions";
 export default function Navbar() {
   return (
     <nav className="flex-between background-light900_dark200 fixed z-50 w-full gap-5 p-6 shadow-light-300 dark:shadow-none sm:px-12">
-      {/* Mobile navigation trigger - moved to right for RTL */}
-      <MobileNav />
+      {/* Brand/Logo - RTL: left side */}
+      <Logo />
 
-      {/* User actions - theme toggle and profile */}
-      <UserActions />
-
-      {/* Global search - hidden on mobile */}
+      {/* Global search - center */}
       <GlobalSearch />
 
-      {/* Brand/Logo - moved to left for RTL */}
-      <Logo />
+      {/* User actions - RTL: right side */}
+      <UserActions />
+      
+      {/* Mobile navigation trigger - RTL: right side */}
+      <MobileNav />
     </nav>
   );
 }

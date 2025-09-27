@@ -14,7 +14,7 @@ export default function SidebarAuth() {
           href="/sign-in"
           icon="/assets/icons/account.svg"
           alt="login"
-          text="Log In"
+          text="ورود"
           className="btn-secondary"
           textClassName="primary-text-gradient"
         />
@@ -22,7 +22,7 @@ export default function SidebarAuth() {
           href="/sign-up"
           icon="/assets/icons/sign-up.svg"
           alt="sign up"
-          text="Sign Up"
+          text="ثبت‌نام"
           className="light-border-2 btn-tertiary text-dark400_light900"
         />
       </div>

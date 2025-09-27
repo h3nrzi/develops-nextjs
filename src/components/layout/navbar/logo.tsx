@@ -14,7 +14,7 @@ export default function Logo() {
         height={23}
         alt="DevFlow"
       />
-      <p className="h2-bold font-vazirmatn text-dark-100 dark:text-light-900 max-sm:hidden">
+      <p className="h2-bold font-vazirmatn text-dark-100 dark:text-light-900 max-sm:hidden rtl-text">
         دو <span className="text-primary-500">فلو</span>
       </p>
     </Link>

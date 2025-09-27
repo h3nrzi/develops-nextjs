@@ -20,13 +20,13 @@ export default function NavigationLink({
   return (
     <Link
       href={href}
-      className={`flex items-center justify-start gap-4 bg-transparent p-4 ${
+      className={`flex items-center justify-between gap-4 bg-transparent p-4 ${
         isActive
           ? "primary-gradient rounded-lg text-light-900"
           : "text-dark300_light900"
       }`}
     >
-      <p className={`max-lg:hidden ${isActive ? "base-bold" : "base-medium"}`}>
+      <p className={`max-lg:hidden rtl-text ${isActive ? "base-bold" : "base-medium"}`}>
         {label}
       </p>
       <Image

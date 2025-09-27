@@ -8,16 +8,16 @@ import NavigationLink from "./navigation-link";
 import SidebarAuth from "./sidebar-auth";
 
 /**
- * Left navigation sidebar component
+ * Right navigation sidebar component (RTL)
  * - Displays navigation links with active state highlighting
  * - Shows authentication buttons for signed-out users
  * - Hidden on mobile devices
  */
-export default function LeftSidebar() {
+export default function RightSidebar() {
   const pathname = usePathname();
 
   return (
-    <section className="background-light900_dark200 light-border custom-scrollbar sticky right-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-l p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
+    <section className="background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
       {/* Navigation links */}
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
