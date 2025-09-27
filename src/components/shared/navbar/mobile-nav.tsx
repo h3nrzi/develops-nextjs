@@ -18,14 +18,20 @@ import { sidebarLinks } from "@/constants";
 /**
  * Reusable auth button component for mobile navigation
  */
-const MobileAuthButton = ({ href, children, className }: {
+const MobileAuthButton = ({
+  href,
+  children,
+  className,
+}: {
   href: string;
   children: React.ReactNode;
   className: string;
 }) => (
   <SheetClose asChild>
     <Link href={href}>
-      <Button className={`small-medium min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ${className}`}>
+      <Button
+        className={`small-medium min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ${className}`}
+      >
         {children}
       </Button>
     </Link>
@@ -51,8 +57,11 @@ export default function MobileNav() {
           className="invert-colors sm:hidden"
         />
       </SheetTrigger>
-      
-      <SheetContent side="left" className="background-light900_dark200 border-none">
+
+      <SheetContent
+        side="left"
+        className="background-light900_dark200 border-none"
+      >
         {/* Logo/Brand */}
         <SheetTitle>
           <Link href="/" className="flex items-center gap-1">
@@ -67,20 +76,23 @@ export default function MobileNav() {
             </p>
           </Link>
         </SheetTitle>
-        
+
         <div>
           {/* Navigation links */}
           <SheetClose asChild>
             <NavContent />
           </SheetClose>
-          
+
           {/* Authentication buttons - only shown when signed out */}
           <SignedOut>
             <div className="flex flex-col gap-3">
               <MobileAuthButton href="/sign-in" className="btn-secondary">
                 <span className="primary-text-gradient">Log In</span>
               </MobileAuthButton>
-              <MobileAuthButton href="/sign-up" className="light-border-2 btn-tertiary text-dark400_light900">
+              <MobileAuthButton
+                href="/sign-up"
+                className="light-border-2 btn-tertiary text-dark400_light900"
+              >
                 Sign Up
               </MobileAuthButton>
             </div>
