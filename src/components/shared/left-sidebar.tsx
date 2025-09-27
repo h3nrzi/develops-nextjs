@@ -7,46 +7,23 @@ import { SignedOut } from "@clerk/nextjs";
 
 import { sidebarLinks } from "@/constants";
 
-import { Button } from "../ui/button";
+import AuthButton from "./auth-button";
 
-const AuthButton = ({
-  href,
-  icon,
-  alt,
-  text,
-  className,
-  textClassName,
-}: {
-  href: string;
-  icon: string;
-  alt: string;
-  text: string;
-  className: string;
-  textClassName?: string;
-}) => (
-  <Link href={href}>
-    <Button
-      className={`small-medium min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none ${className}`}
-    >
-      <Image
-        src={icon}
-        alt={alt}
-        width={20}
-        height={20}
-        className="invert-colors lg:hidden"
-      />
-      <span className={`max-lg:hidden ${textClassName || ""}`}>{text}</span>
-    </Button>
-  </Link>
-);
-
+/**
+ * Left navigation sidebar component
+ * - Displays navigation links with active state highlighting
+ * - Shows authentication buttons for signed-out users
+ * - Hidden on mobile devices
+ */
 export default function LeftSidebar() {
   const pathname = usePathname();
 
   return (
     <section className="background-light900_dark200 light-border custom-scrollbar sticky left-0 top-0 flex h-screen flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]">
+      {/* Navigation links */}
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
+          // Check if current route matches the link (exact match or contains route for nested paths)
           const isActive =
             (pathname.includes(item.route) && item.route.length > 1) ||
             pathname === item.route;
@@ -78,6 +55,7 @@ export default function LeftSidebar() {
         })}
       </div>
 
+      {/* Authentication buttons - only shown when user is signed out */}
       <SignedOut>
         <div className="flex flex-col gap-3">
           <AuthButton
