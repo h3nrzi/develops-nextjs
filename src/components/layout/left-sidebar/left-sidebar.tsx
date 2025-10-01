@@ -3,7 +3,24 @@ import Link from "next/link";
 
 import Tag from "@/components/features/tag";
 
-const hotQuestions = [
+/**
+ * Type definitions for sidebar data
+ */
+interface HotQuestion {
+  id: string;
+  title: string;
+}
+
+interface PopularTag {
+  id: string;
+  name: string;
+  totalQuestions: number;
+}
+
+/**
+ * Mock data for hot questions - in production, this would come from an API
+ */
+const hotQuestions: HotQuestion[] = [
   {
     id: "1",
     title: "چگونه از express به عنوان سرور سفارشی در next.js استفاده کنم؟",
@@ -24,7 +41,10 @@ const hotQuestions = [
   },
 ];
 
-const popularTags = [
+/**
+ * Mock data for popular tags - in production, this would come from an API
+ */
+const popularTags: PopularTag[] = [
   { id: "1", name: "javascript", totalQuestions: 5 },
   { id: "2", name: "typescript", totalQuestions: 15 },
   { id: "3", name: "react", totalQuestions: 2 },
@@ -32,34 +52,43 @@ const popularTags = [
   { id: "5", name: "node.js", totalQuestions: 3 },
 ];
 
+/**
+ * Renders a question link with title and navigation arrow
+ */
+const QuestionLink = ({ question }: { question: HotQuestion }) => (
+  <Link
+    href={`/questions/${question.id}`}
+    className="flex cursor-pointer items-center justify-between gap-7 transition-opacity hover:opacity-80"
+  >
+    <p className="body-medium text-dark500_light700">{question.title}</p>
+    <Image
+      src="/assets/icons/chevron-right.svg"
+      alt="مشاهده سوال"
+      width={20}
+      height={20}
+      className="invert-colors flex-shrink-0 rotate-180"
+    />
+  </Link>
+);
+
+/**
+ * Left sidebar component displaying hot questions and popular tags
+ * Sticky positioned sidebar with responsive visibility
+ */
 export default function LeftSidebar() {
   return (
     <section className="background-light900_dark200 light-border custom-scrollbar max-xl-hidden sticky left-0 top-0 flex h-screen w-[350px] flex-col overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden">
-      {/* Top Questions */}
+      {/* Hot Questions Section */}
       <div className="flex w-full flex-col gap-[30px]">
         <h3 className="h3-bold text-dark200_light900">سوالات پربازدید</h3>
-        {hotQuestions.map((question) => {
-          return (
-            <Link
-              href={`/questions/${question.id}`}
-              key={question.id}
-              className="flex cursor-pointer items-center justify-between gap-7"
-            >
-              <p className="body-medium text-dark500_light700">
-                {question.title}
-              </p>
-              <Image
-                src="/assets/icons/chevron-right.svg"
-                alt="chevron right"
-                width={20}
-                height={20}
-                className="invert-colors rotate-180"
-              />
-            </Link>
-          );
-        })}
+        <div className="flex flex-col gap-4">
+          {hotQuestions.map((question) => (
+            <QuestionLink key={question.id} question={question} />
+          ))}
+        </div>
       </div>
-      {/* Popular Tags */}
+
+      {/* Popular Tags Section */}
       <div className="mt-16">
         <h3 className="h3-bold text-dark200_light900">برچسب های پراستفاده</h3>
         <div className="mt-7 flex flex-col gap-4">
