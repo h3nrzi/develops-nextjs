@@ -53,7 +53,7 @@ export default function Theme() {
         </MenubarTrigger>
 
         {/* Theme options dropdown */}
-        <MenubarContent className="dark:border-dark-900 absolute mt-3 min-w-[120px] rounded border py-2 dark:bg-dark-300">
+        <MenubarContent className="dark:border-dark-900 absolute mt-3 min-w-[120px] rounded border bg-light-900 py-2 dark:bg-dark-300">
           {themes.map((theme) => (
             <MenubarItem
               key={theme.value}
