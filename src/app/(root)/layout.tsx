@@ -1,7 +1,8 @@
 import { PropsWithChildren } from "react";
 
-import { RightSidebar, Navbar } from "@/components/layout";
 import LeftSidebar from "@/components/layout/left-sidebar/left-sidebar";
+import Navbar from "@/components/layout/navbar/navbar";
+import RightSidebar from "@/components/layout/right-sidebar/right-sidebar";
 
 function Layout({ children }: PropsWithChildren) {
   return (
