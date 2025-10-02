@@ -1,10 +1,4 @@
-import { SidebarLink } from "@/types";
-
-export const themes = [
-  { value: "light", label: "روشن", icon: "/assets/icons/sun.svg" },
-  { value: "dark", label: "تاریک", icon: "/assets/icons/moon.svg" },
-  { value: "system", label: "سیستم", icon: "/assets/icons/computer.svg" },
-];
+import { SidebarLink } from "@/types/SidebarLink";
 
 export const sidebarLinks: SidebarLink[] = [
   {
@@ -43,31 +37,3 @@ export const sidebarLinks: SidebarLink[] = [
     label: "پرسش جدید",
   },
 ];
-
-export const BADGE_CRITERIA = {
-  QUESTION_COUNT: {
-    BRONZE: 10,
-    SILVER: 50,
-    GOLD: 100,
-  },
-  ANSWER_COUNT: {
-    BRONZE: 10,
-    SILVER: 50,
-    GOLD: 100,
-  },
-  QUESTION_UPVOTES: {
-    BRONZE: 10,
-    SILVER: 50,
-    GOLD: 100,
-  },
-  ANSWER_UPVOTES: {
-    BRONZE: 10,
-    SILVER: 50,
-    GOLD: 100,
-  },
-  TOTAL_VIEWS: {
-    BRONZE: 1000,
-    SILVER: 10000,
-    GOLD: 100000,
-  },
-};

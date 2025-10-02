@@ -12,7 +12,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { sidebarLinks } from "@/constants";
+import { sidebarLinks } from "@/constants/sidebarLinks";
 
 import MobileAuthButton from "../../auth/mobile-auth-button";
 

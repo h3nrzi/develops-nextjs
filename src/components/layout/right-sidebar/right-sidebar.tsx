@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
-import { sidebarLinks } from "@/constants";
+import { sidebarLinks } from "@/constants/sidebarLinks";
 
 import NavigationLink from "./navigation-link";
 import RightSidebarAuth from "./right-sidebar-auth";

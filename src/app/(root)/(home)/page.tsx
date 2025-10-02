@@ -1,7 +1,9 @@
 import Link from "next/link";
 
-import { Button } from "@/components/ui/button";
+import Filter from "@/components/features/filter";
 import LocalSearchbar from "@/components/features/local-searchbar";
+import { Button } from "@/components/ui/button";
+import { HomePageFilters } from "@/constants/filters";
 
 export default function Home() {
   return (
@@ -23,7 +25,13 @@ export default function Home() {
           placeholder="سوال مورد نظر خود را جستجو کنید"
           className="flex-1"
         />
-        <div>Filters</div>
+        <div>
+          <Filter
+            filters={HomePageFilters}
+            className="min-h-[56px] sm:min-w-[170px]"
+            containerClassName="hidden max-md:flex"
+          />
+        </div>
       </div>
     </>
   );

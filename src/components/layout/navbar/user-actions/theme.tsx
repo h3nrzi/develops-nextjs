@@ -9,7 +9,7 @@ import {
   MenubarMenu,
   MenubarTrigger,
 } from "@/components/ui/menubar";
-import { themes } from "@/constants";
+import { themes } from "@/constants/themes";
 import { useTheme } from "@/context/theme-provider";
 
 /**
