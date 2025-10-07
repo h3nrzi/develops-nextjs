@@ -1,41 +1,41 @@
 export const AnswerFilters = [
-  { name: "Highest Upvotes", value: "highestUpvotes" },
-  { name: "Lowest Upvotes", value: "lowestUpvotes" },
-  { name: "Most Recent", value: "recent" },
-  { name: "Oldest", value: "old" },
+  { name: "بیشترین رای مثبت", value: "highestUpvotes" },
+  { name: "کمترین رای مثبت", value: "lowestUpvotes" },
+  { name: "جدید ترین", value: "recent" },
+  { name: "قدیمی‌ ترین", value: "old" },
 ];
 
 export const UserFilters = [
-  { name: "New Users", value: "new_users" },
-  { name: "Old Users", value: "old_users" },
-  { name: "Top Contributors", value: "top_contributors" },
+  { name: "کاربران جدید", value: "new_users" },
+  { name: "کاربران قدیمی", value: "old_users" },
+  { name: "مشارکت‌کنندگان برتر", value: "top_contributors" },
 ];
 
 export const QuestionFilters = [
-  { name: "Most Recent", value: "most_recent" },
-  { name: "Oldest", value: "oldest" },
-  { name: "Most Voted", value: "most_voted" },
-  { name: "Most Viewed", value: "most_viewed" },
-  { name: "Most Answered", value: "most_answered" },
+  { name: "جدید ترین", value: "most_recent" },
+  { name: "قدیمی‌ ترین", value: "oldest" },
+  { name: "پررای", value: "most_voted" },
+  { name: "پربازدید", value: "most_viewed" },
+  { name: "پرپاسخ", value: "most_answered" },
 ];
 
 export const TagFilters = [
-  { name: "Popular", value: "popular" },
-  { name: "Recent", value: "recent" },
-  { name: "Name", value: "name" },
-  { name: "Old", value: "old" },
+  { name: "محبوب", value: "popular" },
+  { name: "جدید", value: "recent" },
+  { name: "نام", value: "name" },
+  { name: "قدیمی", value: "old" },
 ];
 
 export const HomePageFilters = [
-  { name: "Newest", value: "newest" },
-  { name: "Recommended", value: "recommended" },
-  { name: "Frequent", value: "frequent" },
-  { name: "Unanswered", value: "unanswered" },
+  { name: "جدیدترین", value: "newest" },
+  { name: "پیشنهادی", value: "recommended" },
+  { name: "پرتکرار", value: "frequent" },
+  { name: "بدون پاسخ", value: "unanswered" },
 ];
 
 export const GlobalSearchFilters = [
-  { name: "Question", value: "question" },
-  { name: "Answer", value: "answer" },
-  { name: "User", value: "user" },
-  { name: "Tag", value: "tag" },
+  { name: "سوال", value: "question" },
+  { name: "پاسخ", value: "answer" },
+  { name: "کاربر", value: "user" },
+  { name: "برچسب", value: "tag" },
 ];
