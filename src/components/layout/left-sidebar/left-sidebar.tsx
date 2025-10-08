@@ -1,4 +1,5 @@
-import HotQuestionsSection from "./hot-questions-section";
+import HotQuestionsSection from "@/components/layout/left-sidebar/hot-questions-section";
+
 import PopularTagsSection from "./popular-tags-section";
 
 export default function LeftSidebar() {

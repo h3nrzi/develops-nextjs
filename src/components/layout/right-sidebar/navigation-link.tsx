@@ -20,10 +20,10 @@ export default function NavigationLink({
   return (
     <Link
       href={href}
-      className={`flex items-center gap-4 bg-transparent p-4 ${
+      className={`group flex items-center gap-4 bg-transparent p-4 ${
         isActive
           ? "primary-gradient rounded-lg text-light-900"
-          : "text-dark300_light900"
+          : "text-dark300_light900 hover:primary-gradient hover:rounded-lg hover:!text-light-900"
       }`}
     >
       <Image
@@ -31,7 +31,7 @@ export default function NavigationLink({
         alt={label}
         width={20}
         height={20}
-        className={isActive ? "" : "invert-colors"}
+        className={isActive ? "" : "invert-colors group-hover:invert-0"}
       />
       <p
         className={`text-right max-lg:hidden ${isActive ? "base-bold" : "base-medium"}`}
