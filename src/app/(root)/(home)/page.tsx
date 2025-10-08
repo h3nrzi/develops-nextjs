@@ -7,6 +7,7 @@ import { HomePageFilters } from "@/constants/filters";
 import HomeFilers from "@/components/features/home-filters";
 import { questions } from "@/data/questions";
 import NoResult from "@/components/features/no-result";
+import QuestionCard from "@/components/features/cards/question-card";
 
 export default function Home() {
   return (
@@ -39,7 +40,9 @@ export default function Home() {
 
       <div className="mt-10 flex w-full flex-col gap-6">
         {questions.length > 0 ? (
-          questions.map((question) => <div key={question.id}>QuestionCard</div>)
+          questions.map((question) => (
+            <QuestionCard key={question.id} question={question} />
+          ))
         ) : (
           <NoResult
             title="هنوز سوالی مطرح نشده است."
