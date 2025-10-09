@@ -5,5 +5,9 @@ interface Props {
 }
 
 export default function QuestionCard({ question }: Props) {
-  return <div>{question.title}</div>;
+  return (
+    <div className="card-wrapper rounded-[10px] p-9 sm:px-11">
+      {question.title}
+    </div>
+  );
 }
