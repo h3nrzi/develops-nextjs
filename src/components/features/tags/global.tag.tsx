@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-import { Badge } from "../ui/badge";
+import { Badge } from "../../ui/badge";
 
 interface Props {
   id: string;
@@ -10,7 +10,12 @@ interface Props {
   showCount?: boolean;
 }
 
-export default function Tag({ id, name, totalQuestions, showCount }: Props) {
+export default function GlobalTag({
+  id,
+  name,
+  totalQuestions,
+  showCount,
+}: Props) {
   return (
     <Link href={`/tags/${id}`} className="flex justify-between">
       {showCount && (

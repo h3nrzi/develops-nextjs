@@ -3,7 +3,7 @@
 import { HomePageFilters } from "@/constants/filters";
 import { Button } from "@/components/ui/button";
 
-export default function HomeFilters() {
+export default function ScreenFilter() {
   const active = "newest";
 
   return (

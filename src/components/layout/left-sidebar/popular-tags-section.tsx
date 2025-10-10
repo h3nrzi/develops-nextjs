@@ -1,4 +1,4 @@
-import Tag from "@/components/features/tag";
+import GlobalTag from "@/components/features/tags/global.tag";
 import { popularTags } from "@/data/popular-tags";
 
 export interface PopularTag {
@@ -13,7 +13,7 @@ export default function PopularTagsSection() {
       <h3 className="h3-bold text-dark200_light900">برچسب های پراستفاده</h3>
       <div className="mt-7 flex flex-col gap-4">
         {popularTags.map((tag) => (
-          <Tag
+          <GlobalTag
             key={tag.id}
             id={tag.id}
             name={tag.name}

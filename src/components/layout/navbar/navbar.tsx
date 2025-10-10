@@ -1,4 +1,4 @@
-import GlobalSearch from "../../features/global-search";
+import GlobalSearch from "../../features/searches/global.search";
 
 import Logo from "./logo";
 import MobileNav from "./mobile-nav";

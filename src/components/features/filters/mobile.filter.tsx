@@ -14,7 +14,7 @@ interface Props {
   containerClassName?: string;
 }
 
-export default function Filter({
+export default function MobileFilter({
   filters,
   className,
   containerClassName,

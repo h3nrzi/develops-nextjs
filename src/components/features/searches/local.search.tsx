@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-import { Input } from "../ui/input";
+import { Input } from "../../ui/input";
 
 interface Props {
   route: string;
@@ -12,7 +12,7 @@ interface Props {
   className: string;
 }
 
-export default function LocalSearchbar({
+export default function LocalSearch({
   route,
   iconPosition,
   imgSrc,

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Question } from "@/types/Question";
-import Tag from "@/components/features/tag";
+import GlobalTag from "@/components/features/tags/global.tag";
 import { getTimestamp } from "@/lib/utils";
 import Metric from "@/components/features/metric";
 
@@ -31,7 +31,7 @@ export default function QuestionCard({ question }: Props) {
       {/* Tags */}
       <div className="mt-3.5 flex flex-wrap gap-2">
         {question.tags.map((tag) => (
-          <Tag key={tag.id} id={tag.id} name={tag.name} />
+          <GlobalTag key={tag.id} id={tag.id} name={tag.name} />
         ))}
       </div>
 

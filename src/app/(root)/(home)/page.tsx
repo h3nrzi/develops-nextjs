@@ -1,4 +1,4 @@
-import HomeFilers from "@/components/features/home-filters";
+import ScreenFilter from "@/components/features/filters/screen.filter";
 
 import PageHeader from "./page-header";
 import SearchSection from "./search-section";
@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <PageHeader />
       <SearchSection />
-      <HomeFilers />
+      <ScreenFilter />
       <QuestionsList />
     </>
   );
