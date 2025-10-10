@@ -56,6 +56,7 @@ const eslintConfig = [
       // Next.js specific
       "@next/next/no-img-element": "error",
       "@next/next/no-html-link-for-pages": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
     },
   },
 ];
