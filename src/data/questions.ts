@@ -11,17 +11,17 @@ const tags: QuestionTag[] = [
 const authors: Author[] = [
   {
     id: 1,
-    name: "Hossein Rezaei",
+    name: "حسین رضایی",
     picture: "https://randomuser.me/api/portraits/men/1.jpg",
   },
   {
     id: 2,
-    name: "Sara Johnson",
+    name: "سارا مجیدی",
     picture: "https://randomuser.me/api/portraits/women/2.jpg",
   },
   {
     id: 3,
-    name: "David Kim",
+    name: "داود کریمی",
     picture: "https://randomuser.me/api/portraits/men/3.jpg",
   },
 ];
@@ -56,7 +56,7 @@ export const questions: Question[] = [
     tags: [tags[1], tags[0]],
     author: authors[1],
     upvotes: 89,
-    views: 2033,
+    views: 2000000,
     answers: [
       {
         id: 1,
