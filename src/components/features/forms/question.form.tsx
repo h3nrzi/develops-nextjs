@@ -38,7 +38,7 @@ function QuestionForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex w-full flex-col gap-10"
+        className="flex w-full flex-col gap-[4rem]"
       >
         <FormField
           control={form.control}
@@ -50,16 +50,18 @@ function QuestionForm() {
               </FormLabel>
               <FormControl className="mt-3.5">
                 <Input
-                  className="no-focus paragraph-regular background-light700_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
+                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
                   placeholder="سوال خود را بپرسید..."
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="body-regular mt-2.5 text-light-500">
-                عنوان سوال خود را به صورت واضح و مختصر بنویسید تا دیگران بتوانند
-                به راحتی آن را درک کنند.
-              </FormDescription>
-              <FormMessage className="text-red-400" />
+              <div className="relative mt-2.5">
+                <FormDescription className="body-regular text-light-500">
+                  عنوان سوال خود را به صورت واضح و مختصر بنویسید تا دیگران
+                  بتوانند به راحتی آن را درک کنند.
+                </FormDescription>
+                <FormMessage className="body-regular absolute inset-0 top-7 text-red-400" />
+              </div>
             </FormItem>
           )}
         />
@@ -71,18 +73,20 @@ function QuestionForm() {
               <FormLabel className="paragraph-semibold text-dark400_light800">
                 محتوای سوال <span className="text-primary-500">*</span>
               </FormLabel>
-              <FormControl>
+              <FormControl className="mt-3.5">
                 <Textarea
-                  className="no-focus paragraph-regular background-light700_dark300 light-border-2 text-dark300_light700 min-h-[200px] border"
+                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[200px] border"
                   placeholder="جزئیات سوال خود را شرح دهید..."
                   {...field}
                 />
               </FormControl>
-              <FormDescription className="body-regular mt-2.5 text-light-500">
-                جزئیات کامل سوال خود را توضیح دهید. هرچه توضیحات بیشتر باشد،
-                پاسخ بهتری دریافت خواهید کرد.
-              </FormDescription>
-              <FormMessage className="text-red-400" />
+              <div className="relative mt-2.5">
+                <FormDescription className="body-regular text-light-500">
+                  جزئیات کامل سوال خود را توضیح دهید. هرچه توضیحات بیشتر باشد،
+                  پاسخ بهتری دریافت خواهید کرد.
+                </FormDescription>
+                <FormMessage className="body-regular absolute inset-0 top-7 text-red-400" />
+              </div>
             </FormItem>
           )}
         />
@@ -94,11 +98,11 @@ function QuestionForm() {
               <FormLabel className="paragraph-semibold text-dark400_light800">
                 تگ‌ها <span className="text-primary-500">*</span>
               </FormLabel>
-              <FormControl>
+              <FormControl className="mt-3.5">
                 <Input
                   placeholder="برای سوال تگ اضافه کنید"
                   {...field}
-                  className="no-focus paragraph-regular background-light700_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
+                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
                   value={field.value.join(",")}
                   onChange={(e) =>
                     field.onChange(
@@ -107,11 +111,13 @@ function QuestionForm() {
                   }
                 />
               </FormControl>
-              <FormDescription className="body-regular mt-2.5 text-light-500">
-                حداقل ۱ و حداکثر ۵ تگ مرتبط با سوال خود انتخاب کنید تا دیگران
-                راحتتر آن را پیدا کنند.
-              </FormDescription>
-              <FormMessage className="text-red-400" />
+              <div className="relative mt-2.5">
+                <FormDescription className="body-regular text-light-500">
+                  حداقل ۱ و حداکثر ۵ تگ مرتبط با سوال خود انتخاب کنید تا دیگران
+                  راحتتر آن را پیدا کنند.
+                </FormDescription>
+                <FormMessage className="body-regular absolute inset-0 top-7 text-red-400" />
+              </div>
             </FormItem>
           )}
         />
