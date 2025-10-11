@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { Question } from "@/types/Question";
 import GlobalTag from "@/components/features/tags/global.tag";
-import { getTimestamp } from "@/lib/utils";
+import { getTimestamp } from "@/lib/utils/get-timestamp";
 import Metric from "@/components/features/metric";
 
 interface Props {

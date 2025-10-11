@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Question } from "@/types/Question";
-import { formatNumber } from "@/lib/utils";
+import { formatNumber } from "@/lib/utils/format-number";
 
 interface Props {
   title: string;

@@ -1,6 +1,6 @@
 import { SignedOut } from "@clerk/nextjs";
 
-import AuthButton from "../../auth/auth-button";
+import AuthButton from "@/components/features/buttons/auth.button";
 
 /**
  * Authentication section for sidebar

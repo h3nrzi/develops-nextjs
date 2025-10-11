@@ -1,5 +1,5 @@
+import QuestionCard from "@/components/features/cards/question.card";
 import NoResult from "@/components/features/no-result";
-import QuestionCard from "@/components/features/cards/question-card";
 import { questions } from "@/data/questions";
 
 export default function QuestionsList() {

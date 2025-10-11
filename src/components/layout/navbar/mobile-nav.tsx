@@ -13,8 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { sidebarLinks } from "@/constants/sidebarLinks";
-
-import MobileAuthButton from "../../auth/mobile-auth-button";
+import MobileAuthButton from "@/components/features/buttons/mobile-auth.button";
 
 /**
  * Mobile navigation component using sheet/drawer pattern
