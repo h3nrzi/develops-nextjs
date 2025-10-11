@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Editor } from "@/components/ui/editor";
 import {
   createQuestionSchema,
   type CreateQuestionInput,
@@ -74,10 +74,11 @@ function QuestionForm() {
                 محتوای سوال <span className="text-primary-500">*</span>
               </FormLabel>
               <FormControl className="mt-3.5">
-                <Textarea
-                  className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[200px] border"
+                <Editor
+                  value={field.value}
+                  onChange={field.onChange}
                   placeholder="جزئیات سوال خود را شرح دهید..."
-                  {...field}
+                  className="no-focus paragraph-regular"
                 />
               </FormControl>
               <div className="relative mt-2.5">
