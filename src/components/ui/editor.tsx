@@ -108,6 +108,30 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
         className={`background-light900_dark300 light-border-2 text-dark300_light700 rounded-md border ${className}`}
       >
         <style jsx global>{`
+          .ProseMirror h1 {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 0.67em 0;
+          }
+          .ProseMirror h2 {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0.75em 0;
+          }
+          .ProseMirror ul,
+          .ProseMirror ol {
+            padding: 0 1.5rem;
+            margin: 0.5rem 0;
+          }
+          .ProseMirror ul {
+            list-style-type: disc;
+          }
+          .ProseMirror ol {
+            list-style-type: decimal;
+          }
+          .ProseMirror li {
+            margin: 0.25rem 0;
+          }
           .ProseMirror code,
           .ProseMirror pre {
             direction: ltr;
@@ -147,6 +171,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Heading1 size={18} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={() =>
               editor.chain().focus().toggleHeading({ level: 2 }).run()
@@ -156,7 +181,9 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Heading2 size={18} />
           </ToolbarButton>
+
           <div className="mx-1 w-px bg-light-400 dark:bg-dark-400" />
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleBold().run()}
             active={editor.isActive("bold")}
@@ -164,6 +191,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Bold size={18} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleItalic().run()}
             active={editor.isActive("italic")}
@@ -171,6 +199,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Italic size={18} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleUnderline().run()}
             active={editor.isActive("underline")}
@@ -178,6 +207,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <UnderlineIcon size={18} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleHighlight().run()}
             active={editor.isActive("highlight")}
@@ -185,7 +215,9 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Highlighter size={18} />
           </ToolbarButton>
+
           <div className="mx-1 w-px bg-light-400 dark:bg-dark-400" />
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleBulletList().run()}
             active={editor.isActive("bulletList")}
@@ -193,6 +225,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <List size={18} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleOrderedList().run()}
             active={editor.isActive("orderedList")}
@@ -200,7 +233,9 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <ListOrdered size={18} />
           </ToolbarButton>
+
           <div className="mx-1 w-px bg-light-400 dark:bg-dark-400" />
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleCode().run()}
             active={editor.isActive("code")}
@@ -208,6 +243,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Code size={18} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={() => editor.chain().focus().toggleCodeBlock().run()}
             active={editor.isActive("codeBlock")}
@@ -215,6 +251,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           >
             <Code size={18} strokeWidth={3} />
           </ToolbarButton>
+
           <ToolbarButton
             onClick={setLink}
             active={editor.isActive("link")}
@@ -223,6 +260,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
             <LinkIcon size={18} />
           </ToolbarButton>
         </div>
+
         <EditorContent editor={editor} />
       </div>
     );
