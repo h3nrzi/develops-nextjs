@@ -13,11 +13,11 @@ import { Input } from "@/components/ui/input";
 import { Tag } from "@/components/ui/tag";
 import { CreateQuestionInput } from "@/lib/schemas/question.schema";
 
-interface TagsFieldProps {
+interface Props {
   form: UseFormReturn<CreateQuestionInput>;
 }
 
-export function TagsField({ form }: TagsFieldProps) {
+export function TagsField({ form }: Props) {
   const [tagInput, setTagInput] = useState("");
 
   const handleTagKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -58,7 +58,7 @@ export function TagsField({ form }: TagsFieldProps) {
       render={({ field }) => (
         <FormItem className="flex w-full flex-col">
           <FormLabel className="paragraph-semibold text-dark400_light800">
-            تگها <span className="text-primary-500">*</span>
+            تگ ها <span className="text-primary-500">*</span>
           </FormLabel>
           <FormControl className="mt-3.5">
             <div>
