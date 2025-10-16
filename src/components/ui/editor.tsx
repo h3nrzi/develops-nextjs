@@ -107,7 +107,7 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
       <div
         className={`background-light900_dark300 light-border-2 text-dark300_light700 rounded-md border ${className}`}
       >
-        <style jsx global>{`
+        <style>{`
           .ProseMirror h1 {
             font-size: 2em;
             font-weight: bold;
@@ -136,22 +136,31 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
           .ProseMirror pre {
             direction: ltr;
             text-align: left;
-            font-family: "Courier New", monospace;
+            font-family: "JetBrains Mono", "Fira Code", "Courier New", monospace;
           }
           .ProseMirror pre {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 0.75rem 1rem;
+            background: #0F1117 !important;
+            color: #DCE3F1 !important;
+            padding: 1rem;
             border-radius: 0.5rem;
+            border: 1px solid #212734;
+            margin: 0.5rem 0;
           }
           .ProseMirror code {
-            background: #f4f4f5;
+            background: #F4F6F8 !important;
+            color: #151821 !important;
             padding: 0.2rem 0.4rem;
             border-radius: 0.25rem;
             font-size: 0.875em;
           }
+          .dark .ProseMirror pre {
+            background: #0F1117 !important;
+            color: #DCE3F1 !important;
+            border-color: #212734;
+          }
           .dark .ProseMirror code {
-            background: #27272a;
+            background: #212734 !important;
+            color: #DCE3F1 !important;
           }
           .ProseMirror mark {
             background-color: #fef08a;

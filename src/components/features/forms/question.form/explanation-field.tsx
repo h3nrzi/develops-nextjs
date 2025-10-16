@@ -1,4 +1,5 @@
 import { Control } from "react-hook-form";
+
 import {
   FormControl,
   FormDescription,
@@ -29,13 +30,13 @@ export function ExplanationField({ control }: ExplanationFieldProps) {
               value={field.value}
               onChange={field.onChange}
               placeholder="جزئیات سوال خود را شرح دهید..."
-              className="no-focus paragraph-regular max-w-[720px]"
+              className="no-focus paragraph-regular w-full"
             />
           </FormControl>
           <div className="relative mt-2.5">
             <FormDescription className="body-regular text-light-500">
-              جزئیات کامل سوال خود را توضیح دهید. هرچه توضیحات بیشتر باشد،
-              پاسخ بهتری دریافت خواهید کرد.
+              جزئیات کامل سوال خود را توضیح دهید. هرچه توضیحات بیشتر باشد، پاسخ
+              بهتری دریافت خواهید کرد.
             </FormDescription>
             <FormMessage className="body-regular absolute inset-0 top-7 text-red-400" />
           </div>
