@@ -5,19 +5,8 @@ import {
   CreateQuestionInput,
 } from "@/lib/schemas/question.schema";
 
-type ActionState = {
-  success: boolean;
-  message: string;
-};
-
-export async function createQuestionAction(
-  prevState: ActionState,
-  formData: FormData,
-): Promise<ActionState> {
+export async function createQuestion(data: CreateQuestionInput) {
   try {
-    const rawData = formData.get("data") as string;
-    const data: CreateQuestionInput = JSON.parse(rawData);
-
     // Validate with schema
     const validatedData = createQuestionSchema.parse(data);
 

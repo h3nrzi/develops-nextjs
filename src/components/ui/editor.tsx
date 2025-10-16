@@ -1,25 +1,25 @@
 "use client";
 
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import Placeholder from "@tiptap/extension-placeholder";
-import Link from "@tiptap/extension-link";
-import Underline from "@tiptap/extension-underline";
-import TextAlign from "@tiptap/extension-text-align";
 import Highlight from "@tiptap/extension-highlight";
-import { forwardRef, useImperativeHandle, useCallback } from "react";
+import Link from "@tiptap/extension-link";
+import Placeholder from "@tiptap/extension-placeholder";
+import TextAlign from "@tiptap/extension-text-align";
+import Underline from "@tiptap/extension-underline";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
 import {
   Bold,
-  Italic,
-  Underline as UnderlineIcon,
   Code,
-  List,
-  ListOrdered,
-  Link as LinkIcon,
-  Highlighter,
   Heading1,
   Heading2,
+  Highlighter,
+  Italic,
+  Link as LinkIcon,
+  List,
+  ListOrdered,
+  Underline as UnderlineIcon,
 } from "lucide-react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from "react";
 
 interface EditorProps {
   value: string;
@@ -30,6 +30,7 @@ interface EditorProps {
 
 export const Editor = forwardRef<HTMLDivElement, EditorProps>(
   ({ value, onChange, placeholder, className }, ref) => {
+    const isUpdatingRef = useRef(false);
     const editor = useEditor({
       immediatelyRender: false,
       extensions: [
@@ -57,7 +58,9 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
       ],
       content: value,
       onUpdate: ({ editor }) => {
-        onChange(editor.getHTML());
+        if (!isUpdatingRef.current) {
+          onChange(editor.getHTML());
+        }
       },
       editorProps: {
         attributes: {
@@ -69,6 +72,18 @@ export const Editor = forwardRef<HTMLDivElement, EditorProps>(
     });
 
     useImperativeHandle(ref, () => editor?.view.dom as HTMLDivElement);
+
+    useEffect(() => {
+      if (editor && value === "") {
+        isUpdatingRef.current = true;
+        editor.commands.clearContent();
+        isUpdatingRef.current = false;
+      } else if (editor && editor.getHTML() !== value) {
+        isUpdatingRef.current = true;
+        editor.commands.setContent(value);
+        isUpdatingRef.current = false;
+      }
+    }, [editor, value]);
 
     const setLink = useCallback(() => {
       if (!editor) return;

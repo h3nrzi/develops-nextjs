@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { useActionState, useEffect, useMemo, startTransition } from "react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
@@ -10,70 +10,58 @@ import {
   createQuestionSchema,
   type CreateQuestionInput,
 } from "@/lib/schemas/question.schema";
-import { createQuestionAction } from "@/lib/actions/question.actions";
+import { createQuestion } from "@/lib/actions/question.actions";
 
 import { TitleField } from "./title-field";
 import { ExplanationField } from "./explanation-field";
 import { TagsField } from "./tags-field";
 
 function QuestionForm() {
-  const defaultValues = useMemo(
-    () => ({ title: "", explanation: "", tags: [] }),
-    [],
-  );
   const form = useForm<CreateQuestionInput>({
     resolver: zodResolver(createQuestionSchema),
-    defaultValues,
+    defaultValues: {
+      title: "",
+      explanation: "",
+      tags: [],
+    },
   });
 
-  const initState = { success: false, message: "" };
-  const [state, formAction, isPending] = useActionState(
-    createQuestionAction,
-    initState,
-  );
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState("");
 
-  const onSubmit = (values: CreateQuestionInput) => {
-    const formData = new FormData();
-    formData.append("data", JSON.stringify(values));
-    return formData;
-  };
+  const onSubmit = async (values: CreateQuestionInput) => {
+    setIsSubmitting(true);
+    setMessage("");
 
-  useEffect(() => {
-    if (state.success) {
-      form.reset();
+    try {
+      const result = await createQuestion(values);
+      if (result.success) {
+        form.reset();
+        form.clearErrors();
+        setMessage(result.message);
+      } else {
+        setMessage(result.message);
+      }
+    } catch (error) {
+      setMessage("خطا در ارسال سوال");
+    } finally {
+      setIsSubmitting(false);
     }
-  }, [state.success, form]);
+  };
 
   return (
     <Form {...form}>
       <form
-        action={formAction}
-        onSubmit={(e) => {
-          e.preventDefault();
-          const values = form.getValues();
-          form.trigger().then((isValid) => {
-            if (isValid) {
-              startTransition(() => {
-                const formData = new FormData();
-                formData.append("data", JSON.stringify(values));
-                formAction(formData);
-              });
-            }
-          });
-        }}
+        onSubmit={form.handleSubmit(onSubmit)}
         className="flex w-full flex-col gap-[4rem]"
       >
         <TitleField control={form.control} />
         <ExplanationField control={form.control} />
         <TagsField form={form} />
-        <Button type="submit" disabled={isPending}>
-          {isPending ? "در حال ارسال..." : "ارسال سوال"}
+        <Button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "در حال ارسال..." : "ارسال سوال"}
         </Button>
-        {state.message && (
-          <p className={state.success ? "text-green-600" : "text-red-600"}>
-            {state.message}
-          </p>
-        )}
+        {message && <p className="text-green-600">{message}</p>}
       </form>
     </Form>
   );
