@@ -42,7 +42,7 @@ function QuestionForm() {
       } else {
         setMessage(result.message);
       }
-    } catch (error) {
+    } catch (err) {
       setMessage("خطا در ارسال سوال");
     } finally {
       setIsSubmitting(false);
@@ -58,7 +58,11 @@ function QuestionForm() {
         <TitleField control={form.control} />
         <ExplanationField control={form.control} />
         <TagsField form={form} />
-        <Button type="submit" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          disabled={isSubmitting}
+          className="primary-gradient w-fit !text-light-900"
+        >
           {isSubmitting ? "در حال ارسال..." : "ارسال سوال"}
         </Button>
         {message && <p className="text-green-600">{message}</p>}
