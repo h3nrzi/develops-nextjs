@@ -102,12 +102,11 @@ function QuestionForm() {
               <FormControl className="mt-3.5">
                 <Input
                   placeholder="برای سوال تگ اضافه کنید"
-                  {...field}
                   className="no-focus paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 min-h-[56px] border"
-                  value={field.value.join(",")}
+                  value={field.value.join(", ")}
                   onChange={(e) =>
                     field.onChange(
-                      e.target.value.split(",").map(Number).filter(Boolean),
+                      e.target.value.split(",").map((tag) => tag.trim()).filter(Boolean),
                     )
                   }
                 />
