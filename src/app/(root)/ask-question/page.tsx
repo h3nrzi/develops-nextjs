@@ -5,7 +5,7 @@ function AskQuestionPage() {
     <div>
       <h1 className="h1-bold text-dark100_light900">یک سوال بپرسید</h1>
       <div className="mt-9">
-        <QuestionForm />
+        <QuestionForm mode="create" />
       </div>
     </div>
   );

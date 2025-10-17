@@ -2,6 +2,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { PropsWithChildren } from "react";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 import { ThemeProvider } from "@/context/theme-provider";
@@ -47,6 +48,13 @@ export default function RootLayout({ children }: PropsWithChildren) {
           }}
         >
           <ThemeProvider>{children}</ThemeProvider>
+          <Toaster
+            richColors
+            position="top-right"
+            dir="rtl"
+            className="font-vazirmatn"
+            style={{ fontFamily: "var(--font-vazirmatn)" }}
+          />
         </ClerkProvider>
       </body>
     </html>

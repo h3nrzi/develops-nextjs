@@ -1,25 +1,39 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
+import { toast } from "sonner";
 
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
+import { createQuestion, updateQuestion } from "@/lib/actions/question.actions";
 import {
   createQuestionSchema,
   type CreateQuestionInput,
 } from "@/lib/schemas/question.schema";
-import { createQuestion } from "@/lib/actions/question.actions";
 
-import { TitleField } from "./title-field";
 import { ExplanationField } from "./explanation-field";
 import { TagsField } from "./tags-field";
+import { TitleField } from "./title-field";
 
-function QuestionForm() {
+interface Props {
+  mode: "create" | "edit";
+  questionId?: string;
+  initialValues?: {
+    title: string;
+    explanation: string;
+    tags: string[];
+  };
+}
+
+function QuestionForm({ mode, questionId, initialValues }: Props) {
+  const router = useRouter();
+
   const form = useForm<CreateQuestionInput>({
     resolver: zodResolver(createQuestionSchema),
-    defaultValues: {
+    defaultValues: initialValues ?? {
       title: "",
       explanation: "",
       tags: [],
@@ -27,27 +41,32 @@ function QuestionForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [message, setMessage] = useState("");
 
   const onSubmit = async (values: CreateQuestionInput) => {
     setIsSubmitting(true);
-    setMessage("");
 
     try {
-      const result = await createQuestion(values);
-      if (result.success) {
-        form.reset();
-        form.clearErrors();
-        setMessage(result.message);
-      } else {
-        setMessage(result.message);
-      }
-    } catch (err) {
-      setMessage("خطا در ارسال سوال");
+      const result =
+        mode === "create"
+          ? await createQuestion(values)
+          : questionId
+            ? await updateQuestion(questionId, values)
+            : { type: null, success: false, message: "شناسه سوال نامعتبر است" };
+
+      if (!result.success) return toast.error(result.message);
+
+      toast.success(result.message);
+      if (mode === "create") router.push("/");
+    } catch {
+      toast.error("خطا در ارسال سوال");
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  useEffect(() => {
+    if (initialValues) form.reset(initialValues);
+  }, [initialValues, form]);
 
   return (
     <Form {...form}>
@@ -63,9 +82,14 @@ function QuestionForm() {
           disabled={isSubmitting}
           className="primary-gradient w-fit !text-light-900"
         >
-          {isSubmitting ? "در حال ارسال..." : "ارسال سوال"}
+          {isSubmitting
+            ? mode === "create"
+              ? "در حال ارسال..."
+              : "در حال ویرایش..."
+            : mode === "create"
+              ? "ارسال سوال"
+              : "ویرایش سوال"}
         </Button>
-        {message && <p className="text-green-600">{message}</p>}
       </form>
     </Form>
   );

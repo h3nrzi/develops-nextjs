@@ -13,11 +13,11 @@ import { Input } from "@/components/ui/input";
 import { Tag } from "@/components/ui/tag";
 import { CreateQuestionInput } from "@/lib/schemas/question.schema";
 
-interface Props {
+interface TagsFieldProps {
   form: UseFormReturn<CreateQuestionInput>;
 }
 
-export function TagsField({ form }: Props) {
+export function TagsField({ form }: TagsFieldProps) {
   const [tagInput, setTagInput] = useState("");
 
   const handleTagKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
