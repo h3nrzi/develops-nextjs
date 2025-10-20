@@ -1,5 +1,6 @@
 import { Control } from "react-hook-form";
 
+import { CKEditorComponent } from "@/components/ui/ckeditor";
 import {
   FormControl,
   FormDescription,
@@ -8,7 +9,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Editor } from "@/components/ui/editor";
 import { CreateQuestionInput } from "@/lib/schemas/question.schema";
 
 interface ExplanationFieldProps {
@@ -26,11 +26,10 @@ export function ExplanationField({ control }: ExplanationFieldProps) {
             محتوای سوال <span className="text-primary-500">*</span>
           </FormLabel>
           <FormControl className="mt-3.5">
-            <Editor
+            <CKEditorComponent
               value={field.value}
               onChange={field.onChange}
               placeholder="جزئیات سوال خود را شرح دهید..."
-              className="no-focus paragraph-regular w-full"
             />
           </FormControl>
           <div className="relative mt-2.5">
