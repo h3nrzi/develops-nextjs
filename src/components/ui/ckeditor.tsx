@@ -223,7 +223,7 @@ export function CKEditorComponent({
           placeholder: placeholder || "متن خود را بنویسید...",
         }}
         data={value}
-        onChange={(_, editor) => {
+        onChange={(_: any, editor: any) => {
           onChange(editor.getData());
         }}
       />
