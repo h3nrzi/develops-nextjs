@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  picture   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  questions Question[]
+  answers   Answer[]
+
+  @@map("users")
+}
+
+model Question {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  upvotes   Int      @default(0)
+  views     Int      @default(0)
+  authorId  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  author  User           @relation(fields: [authorId], references: [id])
+  tags    QuestionTag[]
+  answers Answer[]
+
+  @@map("questions")
+}
+
+model Tag {
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  createdAt DateTime @default(now())
+
+  questions QuestionTag[]
+
+  @@map("tags")
+}
+
+model QuestionTag {
+  questionId Int
+  tagId      Int
+
+  question Question @relation(fields: [questionId], references: [id])
+  tag      Tag      @relation(fields: [tagId], references: [id])
+
+  @@id([questionId, tagId])
+  @@map("question_tags")
+}
+
+model Answer {
+  id         Int      @id @default(autoincrement())
+  content    String
+  upvotes    Int      @default(0)
+  questionId Int
+  authorId   Int
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  question Question @relation(fields: [questionId], references: [id])
+  author   User     @relation(fields: [authorId], references: [id])
+
+  @@map("answers")
+}
