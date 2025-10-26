@@ -10,5 +10,7 @@ export function registerQuestionsModule() {
   container.register(QuestionsController, { useClass: QuestionsController });
 }
 
+export { QuestionsController } from "./questions.controller";
 export { QuestionsFactory } from "./questions.factory";
-export { QuestionsController, QuestionsRepository, QuestionsService };
+export { QuestionsRepository } from "./questions.repository";
+export { QuestionsService } from "./questions.service";

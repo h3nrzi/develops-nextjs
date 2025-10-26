@@ -15,20 +15,10 @@ export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
     return this.prisma.question.findMany({
       include: {
         author: true,
-        tags: {
-          include: {
-            tag: true,
-          },
-        },
-        answers: {
-          include: {
-            author: true,
-          },
-        },
+        tags: { include: { tag: true } },
+        answers: { include: { author: true } },
       },
-      orderBy: {
-        createdAt: "desc",
-      },
+      orderBy: { createdAt: "desc" },
     });
   }
 
@@ -38,16 +28,8 @@ export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
         where: { id },
         include: {
           author: true,
-          tags: {
-            include: {
-              tag: true,
-            },
-          },
-          answers: {
-            include: {
-              author: true,
-            },
-          },
+          tags: { include: { tag: true } },
+          answers: { include: { author: true } },
         },
       }),
     );
@@ -78,16 +60,8 @@ export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
       },
       include: {
         author: true,
-        tags: {
-          include: {
-            tag: true,
-          },
-        },
-        answers: {
-          include: {
-            author: true,
-          },
-        },
+        tags: { include: { tag: true } },
+        answers: { include: { author: true } },
       },
     });
   }
@@ -117,16 +91,8 @@ export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
       },
       include: {
         author: true,
-        tags: {
-          include: {
-            tag: true,
-          },
-        },
-        answers: {
-          include: {
-            author: true,
-          },
-        },
+        tags: { include: { tag: true } },
+        answers: { include: { author: true } },
       },
     });
   }
