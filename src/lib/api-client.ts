@@ -64,7 +64,10 @@ class ApiClient {
   }
 
   async get<T>(endpoint: string, options?: RequestInit): Promise<T> {
-    return this.request<T>(endpoint, { method: "GET", ...options });
+    return this.request<T>(endpoint, {
+      method: "GET",
+      ...options,
+    });
   }
 
   async post<T>(
@@ -92,7 +95,10 @@ class ApiClient {
   }
 
   async delete<T>(endpoint: string, options?: RequestInit): Promise<T> {
-    return this.request<T>(endpoint, { method: "DELETE", ...options });
+    return this.request<T>(endpoint, {
+      method: "DELETE",
+      ...options,
+    });
   }
 }
 
