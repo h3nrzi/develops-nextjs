@@ -1,4 +1,9 @@
-import { Question, User, Tag, Answer } from "@prisma/client";
+import { Answer, Question, Tag, User } from "@prisma/client";
+
+import type {
+  CreateQuestionInput,
+  UpdateQuestionInput,
+} from "@/lib/schemas/question.schema";
 
 export type QuestionWithRelations = Question & {
   author: User;
@@ -6,17 +11,8 @@ export type QuestionWithRelations = Question & {
   answers: (Answer & { author: User })[];
 };
 
-export interface CreateQuestionDto {
-  title: string;
-  explanation: string;
-  tags: string[];
-  authorId: number;
+export interface CreateQuestionDto extends CreateQuestionInput {
+  authorId: string;
 }
 
-export interface UpdateQuestionDto {
-  title?: string;
-  explanation?: string;
-  tags?: string[];
-}
-
-export type { Question, User, Tag, Answer };
+export type UpdateQuestionDto = UpdateQuestionInput;

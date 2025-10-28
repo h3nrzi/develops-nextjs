@@ -42,13 +42,28 @@ export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
   }
 
   async create(data: CreateQuestionDto): Promise<QuestionWithRelations> {
+    const authorIdNum = data.authorId.length > 10 ? 
+      Math.abs(data.authorId.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) :
+      parseInt(data.authorId);
+
+    // First ensure user exists
+    const user = await this.prisma.user.upsert({
+      where: { id: authorIdNum },
+      update: {},
+      create: {
+        id: authorIdNum,
+        name: "User",
+        picture: "",
+      },
+    });
+
     return this.prisma.question.create({
       data: {
         title: data.title,
         content: data.explanation,
-        authorId: data.authorId,
+        authorId: user.id,
         tags: {
-          create: data.tags.map((tagName) => ({
+          create: data.tags.map((tagName: string) => ({
             tag: {
               connectOrCreate: {
                 where: { name: tagName },

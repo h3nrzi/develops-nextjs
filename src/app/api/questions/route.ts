@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from "@clerk/nextjs/server";
 
 import { container, registerModules } from "@/core/container";
 import { AppError } from "@/core/errors";
@@ -33,6 +34,15 @@ export async function GET() {
 
 export async function POST(request: NextRequest) {
   try {
+    const { userId } = await auth();
+
+    if (!userId) {
+      return NextResponse.json(
+        { success: false, error: "Unauthorized" },
+        { status: 401 },
+      );
+    }
+
     const body = await request.json();
 
     const validationService =
@@ -55,7 +65,7 @@ export async function POST(request: NextRequest) {
     const controller = QuestionsFactory.create();
     const question = await controller.createQuestion({
       ...validationResult.value,
-      authorId: 1, // TODO: Get from auth context
+      authorId: userId,
     });
 
     return NextResponse.json(
