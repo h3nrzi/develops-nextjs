@@ -1,6 +1,7 @@
 "use server";
 
-import { authenticatedHttpClient, HttpClientError } from "@/lib/http-client";
+import { HttpClientError } from "@/lib/http-client";
+import { questionsService } from "@/services/questions.service";
 import {
   CreateQuestionInput,
   UpdateQuestionInput,
@@ -8,7 +9,7 @@ import {
 
 export async function createQuestion(data: CreateQuestionInput) {
   try {
-    const result = await authenticatedHttpClient.post("/api/questions", data);
+    const result = await questionsService.create(data);
 
     return {
       type: "create",
@@ -40,10 +41,7 @@ export async function updateQuestion(
   data: UpdateQuestionInput,
 ) {
   try {
-    const result = await authenticatedHttpClient.put(
-      `/api/questions/${questionId}`,
-      data,
-    );
+    const result = await questionsService.update(parseInt(questionId), data);
 
     return {
       type: "edit",

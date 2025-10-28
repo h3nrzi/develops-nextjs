@@ -1,10 +1,12 @@
+import type { QuestionWithRelations } from "@/core/modules/questions/questions.model";
+import { authenticatedHttpClient, httpClient } from "@/lib/http-client";
 import type {
-  CreateQuestionDto,
-  QuestionWithRelations,
-} from "@/core/modules/questions/questions.model";
-import { httpClient } from "@/lib/http-client";
+  CreateQuestionInput,
+  UpdateQuestionInput,
+} from "@/lib/schemas/question.schema";
 
 class QuestionsService {
+  // Public operations - no auth required
   async getAll(): Promise<QuestionWithRelations[]> {
     return httpClient.get<QuestionWithRelations[]>("/api/questions");
   }
@@ -13,19 +15,26 @@ class QuestionsService {
     return httpClient.get<QuestionWithRelations>(`/api/questions/${id}`);
   }
 
-  async create(data: CreateQuestionDto): Promise<QuestionWithRelations> {
-    return httpClient.post<QuestionWithRelations>("/api/questions", data);
+  // Protected operations - auth required
+  async create(data: CreateQuestionInput): Promise<QuestionWithRelations> {
+    return authenticatedHttpClient.post<QuestionWithRelations>(
+      "/api/questions",
+      data,
+    );
   }
 
   async update(
     id: number,
-    data: Partial<CreateQuestionDto>,
+    data: UpdateQuestionInput,
   ): Promise<QuestionWithRelations> {
-    return httpClient.put<QuestionWithRelations>(`/api/questions/${id}`, data);
+    return authenticatedHttpClient.put<QuestionWithRelations>(
+      `/api/questions/${id}`,
+      data,
+    );
   }
 
   async delete(id: number): Promise<void> {
-    return httpClient.delete<void>(`/api/questions/${id}`);
+    return authenticatedHttpClient.delete<void>(`/api/questions/${id}`);
   }
 }
 
