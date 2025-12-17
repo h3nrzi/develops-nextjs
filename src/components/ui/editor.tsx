@@ -19,7 +19,13 @@ import {
   ListOrdered,
   Underline as UnderlineIcon,
 } from "lucide-react";
-import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef } from "react";
+import {
+  forwardRef,
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+} from "react";
 
 interface EditorProps {
   value: string;

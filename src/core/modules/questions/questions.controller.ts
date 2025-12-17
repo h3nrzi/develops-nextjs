@@ -1,11 +1,9 @@
 import { inject, injectable } from "tsyringe";
 
-import {
-  CreateQuestionDto,
-  QuestionWithRelations,
-  UpdateQuestionDto,
-} from "./questions.model";
+import { QuestionWithRelations } from "./questions.model";
 import { QuestionsService } from "./questions.service";
+import { CreateQuestionDto } from "./dto/create-question.dto";
+import { UpdateQuestionDto } from "./dto/update-question.dto";
 
 @injectable()
 export class QuestionsController {

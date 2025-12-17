@@ -3,15 +3,15 @@ import { auth } from "@clerk/nextjs/server";
 
 import { container, registerModules } from "@/core/container";
 import { AppError } from "@/core/errors";
-import { QuestionsFactory } from "@/core/modules/questions";
 import { ValidationService } from "@/core/services/validation.service";
 import { createQuestionSchema } from "@/lib/schemas/question.schema";
+import { QuestionsController } from "@/core/modules/questions/questions.controller";
 
 registerModules();
 
 export async function GET() {
   try {
-    const controller = QuestionsFactory.create();
+    const controller = container.resolve(QuestionsController);
     const questions = await controller.getQuestions();
 
     return NextResponse.json({ success: true, data: questions });
@@ -62,7 +62,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const controller = QuestionsFactory.create();
+    const controller = container.resolve(QuestionsController);
     const question = await controller.createQuestion({
       ...validationResult.value,
       authorId: userId,

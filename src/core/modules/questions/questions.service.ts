@@ -3,12 +3,10 @@ import { inject, injectable } from "tsyringe";
 import { CacheService } from "../../services/cache.service";
 import { Logger } from "../../services/logger.service";
 
-import {
-  CreateQuestionDto,
-  QuestionWithRelations,
-  UpdateQuestionDto,
-} from "./questions.model";
+import { QuestionWithRelations } from "./questions.model";
 import { QuestionsRepository } from "./questions.repository";
+import { CreateQuestionDto } from "./dto/create-question.dto";
+import { UpdateQuestionDto } from "./dto/update-question.dto";
 
 @injectable()
 export class QuestionsService {

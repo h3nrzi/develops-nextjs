@@ -9,8 +9,3 @@ export function registerQuestionsModule() {
   container.register("QuestionsService", { useClass: QuestionsService });
   container.register(QuestionsController, { useClass: QuestionsController });
 }
-
-export { QuestionsController } from "./questions.controller";
-export { QuestionsFactory } from "./questions.factory";
-export { QuestionsRepository } from "./questions.repository";
-export { QuestionsService } from "./questions.service";

@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { container } from "tsyringe";
 
-import { registerModules } from "@/core/container";
+import { registerModules, container } from "@/core/container";
 import { AppError, NotFoundError } from "@/core/errors";
-import { QuestionsFactory } from "@/core/modules/questions/questions.factory";
 import { ValidationService } from "@/core/services/validation.service";
 import { updateQuestionSchema } from "@/lib/schemas/question.schema";
+import { QuestionsController } from "@/core/modules/questions/questions.controller";
 
 registerModules();
 
@@ -23,7 +22,7 @@ export async function GET(
       );
     }
 
-    const controller = QuestionsFactory.create();
+    const controller = container.resolve(QuestionsController);
     const question = await controller.getQuestion(id);
 
     return NextResponse.json({ success: true, data: question });
@@ -81,7 +80,7 @@ export async function PUT(
       );
     }
 
-    const controller = QuestionsFactory.create();
+    const controller = container.resolve(QuestionsController);
     const question = await controller.updateQuestion(
       id,
       validationResult.value,
@@ -117,7 +116,7 @@ export async function DELETE(
       );
     }
 
-    const controller = QuestionsFactory.create();
+    const controller = container.resolve(QuestionsController);
     await controller.deleteQuestion(id);
 
     return NextResponse.json({ success: true, message: "Question deleted" });

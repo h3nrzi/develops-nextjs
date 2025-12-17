@@ -3,11 +3,9 @@ import { injectable } from "tsyringe";
 import { BaseRepository } from "../../base/repository";
 import { NotFoundError } from "../../errors";
 
-import {
-  CreateQuestionDto,
-  QuestionWithRelations,
-  UpdateQuestionDto,
-} from "./questions.model";
+import { QuestionWithRelations } from "./questions.model";
+import { CreateQuestionDto } from "./dto/create-question.dto";
+import { UpdateQuestionDto } from "./dto/update-question.dto";
 
 @injectable()
 export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
@@ -42,9 +40,12 @@ export class QuestionsRepository extends BaseRepository<QuestionWithRelations> {
   }
 
   async create(data: CreateQuestionDto): Promise<QuestionWithRelations> {
-    const authorIdNum = data.authorId.length > 10 ? 
-      Math.abs(data.authorId.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) :
-      parseInt(data.authorId);
+    const authorIdNum =
+      data.authorId.length > 10
+        ? Math.abs(
+            data.authorId.split("").reduce((a, b) => a + b.charCodeAt(0), 0),
+          )
+        : parseInt(data.authorId);
 
     // First ensure user exists
     const user = await this.prisma.user.upsert({
